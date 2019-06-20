@@ -79,7 +79,7 @@ public class StuffSelectorActivity extends AppCompatActivity implements StuffSel
         String current=calendar.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar.get(Calendar.MONTH))]
                 + "," + calendar.get(Calendar.YEAR);
 
-        sharedPref.setFromDate(calendar.get(Calendar.DAY_OF_MONTH)+"/"+calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR));
+        sharedPref.setFromDate(calendar.get(Calendar.DAY_OF_MONTH)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.YEAR));
         selector_to.setText(current);
 
         datePickerDialog = new DatePickerDialog(this,this,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE));
@@ -160,11 +160,11 @@ public class StuffSelectorActivity extends AppCompatActivity implements StuffSel
 
         String message=dayOfMonth+" "+months[month]+","+year;
         if(id==0) {
-            sharedPref.setFromDate(dayOfMonth+"/"+month+"/"+year);
+            sharedPref.setFromDate(dayOfMonth+"/"+(month+1)+"/"+year);
             selector_from.setText(message);
         }
         if(id==1) {
-            sharedPref.setToDate(dayOfMonth+"/"+month+"/"+year);
+            sharedPref.setToDate(dayOfMonth+"/"+(month+1)+"/"+year);
             selector_to.setText(message);
         }
     }

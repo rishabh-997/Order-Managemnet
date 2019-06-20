@@ -62,6 +62,7 @@
             android:layout_margin="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:id="@+id/history_paymentterms"
             android:text="hello" />
         <TextView
@@ -70,6 +71,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/history_orderstatus"
             android:text="hello" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Escalate"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/white"
+            android:id="@+id/escalate"/>
 
     </LinearLayout>
 
