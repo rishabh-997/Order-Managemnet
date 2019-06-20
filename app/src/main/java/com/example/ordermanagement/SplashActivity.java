@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.ordermanagement.HomeActivity.MVP.HomeActivity;
 import com.example.ordermanagement.Login.MVP.LogInActivity;
+import com.example.ordermanagement.StuffSelector.MVP.StuffSelectorActivity;
 import com.example.ordermanagement.Utilities.SharedPref;
 
 public class SplashActivity extends AppCompatActivity {
@@ -15,7 +16,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
         setContentView(R.layout.activity_splash);
 
         getSupportActionBar().hide();
@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     finish();
-                    Intent intent=new Intent(SplashActivity.this, HomeActivity.class);
+                    Intent intent=new Intent(SplashActivity.this, StuffSelectorActivity.class);
                     startActivity(intent);
                 }
             },2000);

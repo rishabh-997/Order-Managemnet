@@ -26,10 +26,11 @@
         android:layout_centerHorizontal="true"
         android:text="Subham oils and Resins pvt. ltd."
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="17dp"
         android:textAllCaps="true"
         android:textStyle="bold"
         android:textColor="#2B0E6F"
+        android:layout_marginTop="20dp"
         android:id="@+id/com1"/>
     <TextView
         android:id="@+id/com2"
@@ -40,7 +41,7 @@
         android:text="Girdhari chemicals and resin pvt ltd"
         android:layout_marginTop="12dp"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="17dp"
         android:textAllCaps="true"
         android:textStyle="bold"
         android:textColor="#2B0E6F"/>
@@ -53,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:text="bharti chemicals"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="17dp"
         android:textAllCaps="true"
         android:textStyle="bold"
         android:textColor="#2B0E6F"/>
@@ -66,5 +67,5 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:padding="10dp"
-        android:textColor="@android:color/holo_orange_light"/>
+        android:textColor="@color/colorPrimary"/>
 </RelativeLayout>

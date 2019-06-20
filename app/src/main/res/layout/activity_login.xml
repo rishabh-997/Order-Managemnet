@@ -5,99 +5,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_above="@+id/login_email"
-        android:layout_centerInParent="true"
-        android:src="@mipmap/logo"/>
+        android:id="@+id/imagelogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/login"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Enter Mobile"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="6dp"
-        android:inputType="number"
-        android:maxLength="10"
-        android:background="#40000000"
-        android:id="@+id/login_email"
-        android:textColorHint="#B89000"
-        android:outlineAmbientShadowColor="#B89000"
-        android:outlineSpotShadowColor="#B89000"
-        android:textColor="#B89000"
-        android:shadowColor="#B89000"
-        android:textColorHighlight="#B89000"
-        android:textColorLink="#B89000"
-        android:layout_above="@id/login_password" />
-    <EditText
-        android:layout_width="match_parent"
-        android:hint="Enter Password"
-        android:inputType="textPassword"
-        android:layout_height="50dp"
-        android:textColorHint="#B89000"
-        android:outlineAmbientShadowColor="#B89000"
-        android:outlineSpotShadowColor="#B89000"
-        android:textColor="#B89000"
-        android:shadowColor="#B89000"
-        android:textColorHighlight="#B89000"
-        android:background="#40000000"
-        android:textColorLink="#B89000"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/login_password"
-        android:layout_above="@+id/login_login"
 
-        />
-
-    <TextView
+    <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="05dp"
-        android:textSize="16dp"
-        android:visibility="gone"
-        android:text="Not registered?"
-        android:layout_marginLeft="30dp"
-        android:paddingRight="5dp"
-        android:layout_below="@+id/login_password"
-        android:textAlignment="center"
-        android:id="@+id/not_regis"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/box"
+        android:elevation="12dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/imagelogin"
+        android:id="@+id/card">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginbar"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Enter Mobile"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="6dp"
+                android:inputType="number"
+                android:maxLength="10"
+                android:id="@+id/login_email"
+                android:textColorHint="@color/colorPrimary"
+                android:layout_above="@id/login_password" />
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="Enter Password"
+                android:inputType="textPassword"
+                android:layout_height="50dp"
+                android:textColorHint="@color/colorPrimary"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/login_password"
+                android:layout_above="@+id/login_login"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="05dp"
+                android:textSize="16dp"
+                android:visibility="gone"
+                android:text="Not registered?"
+                android:layout_marginLeft="30dp"
+                android:paddingRight="5dp"
+                android:layout_below="@+id/login_password"
+                android:textAlignment="center"
+                android:id="@+id/not_regis"
 
 
-        />
+                />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="03dp"
-        android:layout_marginLeft="5dp"
-        android:textSize="18dp"
-        android:text="Sign Up"
-        android:visibility="gone"
-        android:textAlignment="center"
-        android:textColor="#009052"
-        android:textStyle="bold"
-        android:id="@+id/login_signup"
-        android:layout_below="@+id/login_password"
-        android:layout_toRightOf="@+id/not_regis"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="03dp"
+                android:layout_marginLeft="5dp"
+                android:textSize="18dp"
+                android:text="Sign Up"
+                android:visibility="gone"
+                android:textAlignment="center"
+                android:textColor="#009052"
+                android:textStyle="bold"
+                android:id="@+id/login_signup"
+                android:layout_below="@+id/login_password"
+                android:layout_toRightOf="@+id/not_regis"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="login"
-        android:padding="20dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/component"
-        android:layout_alignParentBottom="true"
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="login"
+                android:padding="20dp"
+                android:background="@drawable/component"
+                android:layout_alignParentBottom="true"
 
-        android:scaleY="0.82"
-        android:scaleX="0.9"
-        android:id="@+id/login_login"
-        />
+                android:scaleY="0.82"
+                android:scaleX="0.9"
+                android:id="@+id/login_login"
+                />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>

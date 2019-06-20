@@ -10,6 +10,9 @@ public class SharedPref
     private static final String COMPANY_NAME="company";
     private static final String PREF_NAME = "welcome";
     private static final String FIRST_TIME = "first";
+    private static final String FROM_DATE = "from";
+    private static final String TO_DATE = "to";
+
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -50,6 +53,26 @@ public class SharedPref
     public void setCompany(String company)
     {
         editor.putString(COMPANY_NAME,company);
+        editor.commit();
+    }
+
+    public String getFromDate()
+    {
+        return pref.getString(FROM_DATE,null);
+    }
+    public void setFromDate(String date)
+    {
+        editor.putString(FROM_DATE,date);
+        editor.commit();
+    }
+
+    public String getToDate()
+    {
+        return pref.getString(TO_DATE,null);
+    }
+    public void setToDate(String date)
+    {
+        editor.putString(TO_DATE,date);
         editor.commit();
     }
 

@@ -20,6 +20,8 @@
             android:label="Log In"/>
         <activity android:name=".HomeActivity.MVP.HomeActivity"
             android:label="Orders"/>
+        <activity android:name=".StuffSelector.MVP.StuffSelectorActivity"
+            android:label="Select"/>
     </application>
 
 </manifest>

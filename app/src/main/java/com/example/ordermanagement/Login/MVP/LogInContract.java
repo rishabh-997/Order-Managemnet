@@ -9,6 +9,8 @@ public class LogInContract {
         void showToast(String message);
 
         void enterApp(LogInResponse body);
+
+        void hidebar();
     }
     interface presenter
     {

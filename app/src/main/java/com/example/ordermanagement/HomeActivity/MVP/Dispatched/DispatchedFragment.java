@@ -69,7 +69,7 @@ public class DispatchedFragment extends Fragment implements DispatchedContract.v
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab3, container, false);
+        return inflater.inflate(R.layout.fragment_dispatched, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

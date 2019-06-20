@@ -25,15 +25,19 @@ public class LogInPresenter implements LogInContract.presenter
                 {
                     if(response.body().getMessage().equals("Login Successful"))
                     {
+                        mvpview.hidebar();
                         mvpview.enterApp(response.body());
                     }
                     else
                     {
+                        mvpview.hidebar();
                         mvpview.showToast(response.body().getMessage());
                     }
                 }
-                else
+                else{
                     mvpview.showToast("Unsuccessful : "+response.message());
+                    mvpview.hidebar();
+                }
             }
 
             @Override

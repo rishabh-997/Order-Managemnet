@@ -8,11 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.ordermanagement.HomeActivity.MVP.HomeActivity;
 import com.example.ordermanagement.Login.Model.LogInResponse;
 import com.example.ordermanagement.R;
+import com.example.ordermanagement.StuffSelector.MVP.StuffSelectorActivity;
 import com.example.ordermanagement.Utilities.MyApplication;
 import com.example.ordermanagement.Utilities.SharedPref;
 
@@ -28,7 +30,8 @@ public class LogInActivity extends AppCompatActivity implements LogInContract.vi
     EditText mobile;
     @BindView(R.id.login_password)
     EditText password;
-
+    @BindView(R.id.loginbar)
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,8 +43,22 @@ public class LogInActivity extends AppCompatActivity implements LogInContract.vi
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                presenter.requestlogin(mobile.getText().toString(),password.getText().toString(), MyApplication.getFcm());
+            public void onClick(View v)
+            {
+                if(mobile.getText().length()!=10)
+                {
+                    mobile.setError("Invalid Mobile Number");
+                    mobile.requestFocus();
+                }
+                if(password.getText().toString().isEmpty())
+                {
+                    password.setError("Enter Password");
+                    password.requestFocus();
+                }
+                if((mobile.getText().length()==10)&&(!password.getText().toString().isEmpty())) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    presenter.requestlogin(mobile.getText().toString(), password.getText().toString(), MyApplication.getFcm());
+                }
             }
         });
 
@@ -63,6 +80,11 @@ public class LogInActivity extends AppCompatActivity implements LogInContract.vi
         Log.i("Fcm",MyApplication.getFcm());
 
         finish();
-        startActivity(new Intent(this, HomeActivity.class));
+        startActivity(new Intent(this, StuffSelectorActivity.class));
+    }
+
+    @Override
+    public void hidebar() {
+        progressBar.setVisibility(View.GONE);
     }
 }
