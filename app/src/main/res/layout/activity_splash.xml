@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"
+        />
+
+    <ImageView
+        android:id="@+id/logo_id"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="20dp"
+        android:src="@mipmap/logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo_id"
+        android:layout_centerHorizontal="true"
+        android:text="Subham oils and Resins pvt. ltd."
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="#2B0E6F"
+        android:id="@+id/com1"/>
+    <TextView
+        android:id="@+id/com2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/com1"
+        android:layout_centerHorizontal="true"
+        android:text="Girdhari chemicals and resin pvt ltd"
+        android:layout_marginTop="12dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="#2B0E6F"/>
+    <TextView
+        android:id="@+id/com3"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/com2"
+        android:layout_centerHorizontal="true"
+        android:text="bharti chemicals"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="#2B0E6F"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="version v1.0"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textColor="@android:color/holo_orange_light"/>
+</RelativeLayout>

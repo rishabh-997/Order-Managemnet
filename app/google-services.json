@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "602612062390",
+    "firebase_url": "https://order-and-management.firebaseio.com",
+    "project_id": "order-and-management",
+    "storage_bucket": "order-and-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602612062390:android:97bb5ee9f236ae08",
+        "android_client_info": {
+          "package_name": "com.example.ordermanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602612062390-rla2db6t1mndpsqm78bqsreskl74c05t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ordermanagement",
+            "certificate_hash": "5cb9df8ee8a976572adaab3240a84ee6a3b9e2b8"
+          }
+        },
+        {
+          "client_id": "602612062390-m41qb41hdcfoeunlik6v0bqv7bjmth2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeyBJRVt1Yp1npj6TfwAngoUoqKCkJtZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602612062390-m41qb41hdcfoeunlik6v0bqv7bjmth2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
