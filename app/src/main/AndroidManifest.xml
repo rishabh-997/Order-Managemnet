@@ -22,6 +22,8 @@
             android:label="Orders"/>
         <activity android:name=".StuffSelector.MVP.StuffSelectorActivity"
             android:label="Select"/>
+        <activity android:name=".HomeActivity.MVP.OrderDetails.OrderDetailActivity"
+            android:label="Details"/>
     </application>
 
 </manifest>

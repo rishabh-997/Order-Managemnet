@@ -45,6 +45,7 @@ public class PreparedFragment extends Fragment implements PreparedContract.view
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {

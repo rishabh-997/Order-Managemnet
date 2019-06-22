@@ -5,7 +5,10 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
+import com.example.ordermanagement.HomeActivity.Model.EscalateResponse;
+import com.example.ordermanagement.HomeActivity.Model.HistoryDetailResponse;
 import com.example.ordermanagement.HomeActivity.Model.OrderListResponse;
+import com.example.ordermanagement.HomeActivity.Model.TransportResponse;
 import com.example.ordermanagement.Login.Model.LogInResponse;
 import com.example.ordermanagement.StuffSelector.Model.Comapny_response;
 
@@ -32,5 +35,35 @@ public interface ClientAPI {
             @Field("from_date") String fromdate,
             @Field("to_date") String todate,
             @Field("status") String status
+    );
+
+    @POST("GetOrderDetailsHistory/")
+    @FormUrlEncoded
+    Call<HistoryDetailResponse> getOrderDetailsHistory(
+            @Field("OrderId") String id
+    );
+
+    @POST("EscalateOrder/")
+    @FormUrlEncoded
+    Call<EscalateResponse> escalateOrder(
+            @Field("OrderId") String id,
+            @Field("Contact_Type") String type
+    );
+
+    @POST("AdminUpdateOrder/")
+    @FormUrlEncoded
+    Call<EscalateResponse> updateProduct(
+            @Field("OrderID") String orderid,
+            @Field("PID") String productid,
+            @Field("Size") String size,
+            @Field("Unit") String unit,
+            @Field("Cost") String cost,
+            @Field("Contact_Type") String type
+    );
+
+    @POST("DataBaseRetrival/")
+    @FormUrlEncoded
+    Call<TransportResponse> getTransportList(
+            @Field("RegType") String regtype
     );
 }

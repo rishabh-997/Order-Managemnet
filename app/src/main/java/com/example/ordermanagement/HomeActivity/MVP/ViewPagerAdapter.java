@@ -1,5 +1,6 @@
 package com.example.ordermanagement.HomeActivity.MVP;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -13,9 +14,10 @@ import com.example.ordermanagement.HomeActivity.MVP.Prepared.PreparedFragment;
 public class ViewPagerAdapter extends FragmentStatePagerAdapter
 {
 
-
-    public ViewPagerAdapter(FragmentManager fm) {
+    Context context;
+    public ViewPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        this.context=context;
     }
 
     @Override

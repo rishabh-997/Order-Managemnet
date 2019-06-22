@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.ordermanagement.HomeActivity.MVP.AdapterForOrder.AdapterForOrder;
 import com.example.ordermanagement.HomeActivity.MVP.Cancelled.CancelledFragment;
 import com.example.ordermanagement.HomeActivity.MVP.Delivered.DeliveredFragment;
 import com.example.ordermanagement.HomeActivity.MVP.Dispatched.DispatchedFragment;
@@ -29,7 +30,7 @@ public class HomeActivity extends AppCompatActivity implements PlacedFragment.On
         setContentView(R.layout.activity_home);
 
         ViewPager viewPager = findViewById(R.id.pager);
-        ViewPagerAdapter myPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter myPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),this);
         viewPager.setAdapter(myPagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
@@ -39,4 +40,6 @@ public class HomeActivity extends AppCompatActivity implements PlacedFragment.On
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+
 }

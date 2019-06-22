@@ -20,6 +20,12 @@ public class ClientList
     String Order_Status;
     @SerializedName("Comment")
     String comment;
+    @SerializedName("Client_Name")
+    String name;
+
+    public String getName() {
+        return name;
+    }
 
     public String getOrderId() {
         return OrderId;

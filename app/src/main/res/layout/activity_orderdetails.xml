@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textColor="@android:color/black"
+        android:background="@color/black_overlay"
+        android:text="OrderID"
+        android:gravity="center"
+        android:id="@+id/orderDetail_id"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="comment"
+        android:textSize="15sp"
+        android:layout_margin="3dp"
+        android:id="@+id/orderdetails_comment"
+        android:textStyle="italic"
+        android:fontFamily="serif-monospace"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="6dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/orderDetail_recycler">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>
