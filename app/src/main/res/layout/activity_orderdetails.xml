@@ -11,8 +11,8 @@
         android:background="@color/black_overlay"
         android:text="OrderID"
         android:gravity="center"
-        android:id="@+id/orderDetail_id"
-        android:textSize="22sp"/>
+        android:textSize="22sp"
+        android:id="@+id/orderDetail_id"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -20,9 +20,9 @@
         android:text="comment"
         android:textSize="15sp"
         android:layout_margin="3dp"
-        android:id="@+id/orderdetails_comment"
         android:textStyle="italic"
-        android:fontFamily="serif-monospace"/>
+        android:fontFamily="serif-monospace"
+        android:id="@+id/orderdetails_comment"/>
 
     <View
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.example.ordermanagement.HomeActivity.MVP.AdapterForOrder;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +62,7 @@ public class AdapterForOrder extends RecyclerView.Adapter<AdapterForOrder.ViewHo
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AdapterForOrder.ViewHolder viewHolder, int i)
     {
@@ -67,13 +70,20 @@ public class AdapterForOrder extends RecyclerView.Adapter<AdapterForOrder.ViewHo
         final ClientList history=list.get(i);
         final String orderid=history.getOrderId();
         viewHolder.id.setText(history.getOrderId());
-        viewHolder.date.setText(history.getDateOfPurchase());
+        viewHolder.date.setText("Order was Placed on "+history.getDateOfPurchase());
         viewHolder.name.setText(history.getName());
-        viewHolder.cost.setText("Payable excluding GST: "+history.getTotalCost());
-        viewHolder.totalcost.setText("Payable including GST : "+history.getTotal_Cost_WTax());
-        viewHolder.paymentterms.setText("PAYMENT TERMS : "+history.getPaymentTerms());
-        viewHolder.paymentstatus.setText("PAYMENT STATUS : "+history.getPaymentStatus());
-        viewHolder.orderstatus.setText("ORDER STATUS : "+history.getOrder_Status());
+        viewHolder.cost.setText(history.getTotalCost());
+        viewHolder.totalcost.setText(history.getTotal_Cost_WTax());
+        viewHolder.paymentterms.setText(history.getPaymentTerms());
+        viewHolder.paymentstatus.setText(history.getPaymentStatus());
+        viewHolder.orderstatus.setText(history.getOrder_Status());
+        viewHolder.cgst.setText(history.getCgst());
+        viewHolder.sgst.setText(history.getSgst());
+        String comment=history.getComment();
+        if(comment.trim().isEmpty())
+            viewHolder.comment.setText("No Comment Found");
+        else
+            viewHolder.comment.setText(history.getComment());
 
         if(tabname.equals("Prepared"))
             viewHolder.escalate.setText("Move It To Dispatched");
@@ -197,23 +207,26 @@ public class AdapterForOrder extends RecyclerView.Adapter<AdapterForOrder.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView id,date,cost,totalcost,paymentstatus,paymentterms,orderstatus,name;
+        TextView id,date,cost,totalcost,cgst,sgst,paymentstatus,paymentterms,orderstatus,name,comment;
         Button escalate;
-        LinearLayout linearLayout;
+        RelativeLayout linearLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            id=itemView.findViewById(R.id.history_orderid);
-            date=itemView.findViewById(R.id.history_date);
-            cost=itemView.findViewById(R.id.history_cost);
-            totalcost=itemView.findViewById(R.id.history_totalcost);
-            paymentstatus=itemView.findViewById(R.id.history_paymentstatus);
-            paymentterms=itemView.findViewById(R.id.history_paymentterms);
-            orderstatus=itemView.findViewById(R.id.history_orderstatus);
+            id=itemView.findViewById(R.id.order_status_id);
+            date=itemView.findViewById(R.id.order_status_time);
+            cost=itemView.findViewById(R.id.order_status_totalcost);
+            totalcost=itemView.findViewById(R.id.order_status_totalcosttax);
+            paymentstatus=itemView.findViewById(R.id.order_status_payment_status);
+            paymentterms=itemView.findViewById(R.id.order_status_payment_terms);
+            orderstatus=itemView.findViewById(R.id.order_status_status);
             escalate=itemView.findViewById(R.id.escalate);
-            linearLayout=itemView.findViewById(R.id.history_layout);
-            name=itemView.findViewById(R.id.history_name);
+            linearLayout=itemView.findViewById(R.id.layout_relative);
+            name=itemView.findViewById(R.id.order_status_name);
+            cgst=itemView.findViewById(R.id.order_status_cgst);
+            sgst=itemView.findViewById(R.id.order_status_sgst);
+            comment=itemView.findViewById(R.id.order_status_comment);
         }
     }
 

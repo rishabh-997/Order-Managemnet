@@ -10,6 +10,10 @@ public class ClientList
     String DateOfPurchase;
     @SerializedName("TotalCost")
     String TotalCost;
+    @SerializedName("Total_SGST")
+    String sgst;
+    @SerializedName("Total_CGST")
+    String cgst;
     @SerializedName("Total_Cost_WTax")
     String Total_Cost_WTax;
     @SerializedName("PaymentStatus")
@@ -22,6 +26,14 @@ public class ClientList
     String comment;
     @SerializedName("Client_Name")
     String name;
+
+    public String getSgst() {
+        return sgst;
+    }
+
+    public String getCgst() {
+        return cgst;
+    }
 
     public String getName() {
         return name;

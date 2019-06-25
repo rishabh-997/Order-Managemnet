@@ -75,6 +75,7 @@ public class StuffSelectorActivity extends AppCompatActivity implements StuffSel
         sharedPref=new SharedPref(this);
         preseter.getCompany();
 
+        //current date
         Calendar calendar=Calendar.getInstance(TimeZone.getDefault());
         String current=calendar.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar.get(Calendar.MONTH))]
                 + "," + calendar.get(Calendar.YEAR);
@@ -82,6 +83,16 @@ public class StuffSelectorActivity extends AppCompatActivity implements StuffSel
         sharedPref.setToDate(calendar.get(Calendar.DAY_OF_MONTH)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.YEAR));
         selector_to.setText(current);
 
+
+        //previous date
+        calendar.add(Calendar.DAY_OF_YEAR,-7);
+        String previous=calendar.get(Calendar.DAY_OF_MONTH) + " " + months[(calendar.get(Calendar.MONTH))]
+                + "," + calendar.get(Calendar.YEAR);
+        sharedPref.setFromDate(calendar.get(Calendar.DAY_OF_MONTH)+"/"+(calendar.get(Calendar.MONTH)+1)+"/"+calendar.get(Calendar.YEAR));
+        selector_from.setText(previous);
+
+
+        //date selector
         datePickerDialog = new DatePickerDialog(this,this,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DATE));
 
         selector_from_image.setOnClickListener(new View.OnClickListener() {
