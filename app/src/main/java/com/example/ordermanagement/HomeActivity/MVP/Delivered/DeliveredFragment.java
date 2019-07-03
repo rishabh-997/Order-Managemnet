@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import com.example.ordermanagement.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -28,6 +30,9 @@ public class DeliveredFragment extends Fragment implements DeliveredContract.vie
 
     DeliveredContract.presenter presenter;
     AdapterForOrder adapterForOrder;
+
+    @BindView(R.id.swipeToRefresh)
+    SwipeRefreshLayout swipe;
 
     RecyclerView recyclerView;
     List<ClientList> lists=new ArrayList<>();
@@ -70,12 +75,26 @@ public class DeliveredFragment extends Fragment implements DeliveredContract.vie
     {
         View view=inflater.inflate(R.layout.fragment_cancelled, container, false);
         presenter=new DeliveredPresenter(this);
-        ButterKnife.bind(getContext(),view);
+        ButterKnife.bind(this,view);
 
         recyclerView=view.findViewById(R.id.orderlist_recycler);
         progressBar=view.findViewById(R.id.order_bar);
         presenter.getOrders(getContext());
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+                swipe.setRefreshing(false);
+            }
+        });
+
         return view;
+    }
+
+    private void refresh()
+    {
+        progressBar.setVisibility(View.VISIBLE);
+        presenter.getOrders(getContext());
     }
 
     @Override
