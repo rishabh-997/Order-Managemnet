@@ -1,5 +1,6 @@
 package com.example.ordermanagement.HomeActivity.MVP.OrderDetails;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -34,11 +35,14 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
         return new ViewHolder(view,onNoteClickListener);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull OrderDetailAdapter.ViewHolder viewHolder, int i) {
 
         HistoryDetailList cartList=list.get(i);
         viewHolder.name.setText(cartList.getName());
+        viewHolder.prod_name.setText(cartList.getProd_name_new());
+        viewHolder.nvm.setText("NVM : "+cartList.getNvm());
         viewHolder.cost.setText(cartList.getCost());
         viewHolder.size.setText(cartList.getSize());
         viewHolder.unit.setText(cartList.getUnit());
@@ -51,7 +55,7 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
-        TextView name;
+        TextView name,prod_name,nvm;
         EditText cost,size,unit;
         TextView delete,update;
         onNoteClickListener listener;
@@ -60,6 +64,8 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.
             super(itemView);
 
             name=itemView.findViewById(R.id.cart_final_name);
+            prod_name=itemView.findViewById(R.id.cart_final_prod_name);
+            nvm=itemView.findViewById(R.id.cart_final_nvm);
             cost=itemView.findViewById(R.id.cart_final_price);
             size=itemView.findViewById(R.id.cart_final_size);
             unit=itemView.findViewById(R.id.cart_final_unit);

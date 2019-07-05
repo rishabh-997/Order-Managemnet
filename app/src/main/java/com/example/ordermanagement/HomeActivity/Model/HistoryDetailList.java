@@ -16,6 +16,18 @@ public class HistoryDetailList
     String name;
     @SerializedName("Product_id")
     String id;
+    @SerializedName("NVM")
+    String nvm;
+    @SerializedName("Product_Name_New")
+    String prod_name_new;
+
+    public String getNvm() {
+        return nvm;
+    }
+
+    public String getProd_name_new() {
+        return prod_name_new;
+    }
 
     public String getName() {
         return name;
