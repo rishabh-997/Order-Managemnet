@@ -33,6 +33,8 @@ public class PreparedFragment extends Fragment implements PreparedContract.view
 
     @BindView(R.id.swipeToRefresh)
     SwipeRefreshLayout swipe;
+    @BindView(R.id.dim_bg)
+    View dim;
 
     RecyclerView recyclerView;
     List<ClientList> lists=new ArrayList<>();
@@ -147,4 +149,28 @@ public class PreparedFragment extends Fragment implements PreparedContract.view
         void onFragmentInteraction(Uri uri);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        dim.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        dim.setVisibility(View.GONE);
+        refresh();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        dim.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        dim.setVisibility(View.VISIBLE);
+    }
 }

@@ -8,7 +8,8 @@ import retrofit2.http.POST;
 import com.example.ordermanagement.HomeActivity.Model.EscalateResponse;
 import com.example.ordermanagement.HomeActivity.Model.HistoryDetailResponse;
 import com.example.ordermanagement.HomeActivity.Model.OrderListResponse;
-import com.example.ordermanagement.HomeActivity.Model.TransportResponse;
+import com.example.ordermanagement.Transporter.Model.DispatchResponse;
+import com.example.ordermanagement.Transporter.Model.TransportResponse;
 import com.example.ordermanagement.Login.Model.LogInResponse;
 import com.example.ordermanagement.StuffSelector.Model.Comapny_response;
 
@@ -65,5 +66,12 @@ public interface ClientAPI {
     @FormUrlEncoded
     Call<TransportResponse> getTransportList(
             @Field("RegType") String regtype
+    );
+
+    @POST("AdminOrderTransporterData/")
+    @FormUrlEncoded
+    Call<DispatchResponse> dispatch(
+            @Field("OrderID") String id,
+            @Field("Mobile") String mobile
     );
 }

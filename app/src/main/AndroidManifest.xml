@@ -33,6 +33,9 @@
             android:label="Select"/>
         <activity android:name=".HomeActivity.MVP.OrderDetails.OrderDetailActivity"
             android:label="Details"/>
+        <activity android:name=".Transporter.MVP.TransportActivity"
+            android:label="Select Transporter"
+            android:theme="@style/AppTheme.popup"/>
     </application>
 
 </manifest>

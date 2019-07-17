@@ -23,6 +23,7 @@ import com.example.ordermanagement.HomeActivity.Model.ClientList;
 import com.example.ordermanagement.HomeActivity.Model.EscalateResponse;
 import com.example.ordermanagement.HomeActivity.Model.OrderListResponse;
 import com.example.ordermanagement.R;
+import com.example.ordermanagement.Transporter.MVP.TransportActivity;
 import com.example.ordermanagement.Utilities.Network.ClientAPI;
 import com.example.ordermanagement.Utilities.Network.Utils;
 import com.example.ordermanagement.Utilities.SharedPref;
@@ -111,7 +112,7 @@ public class AdapterForOrder extends RecyclerView.Adapter<AdapterForOrder.ViewHo
             @Override
             public void onClick(View v)
             {
-                if(tabname.equals("Prepared") || tabname.equals("Placed") || tabname.equals("Dispatched"))
+                if(tabname.equals("Placed") || tabname.equals("Dispatched"))
                 {
                     progressDialog.show();
                     clientAPI.escalateOrder(orderid,"Client").enqueue(new Callback<EscalateResponse>() {
@@ -125,6 +126,13 @@ public class AdapterForOrder extends RecyclerView.Adapter<AdapterForOrder.ViewHo
                             showThrowable(t);
                         }
                     });
+                }
+                else if(tabname.equals("Prepared"))
+                {
+                    Intent intent= new Intent(context, TransportActivity.class);
+                    intent.putExtra("comment",history.getComment());
+                    intent.putExtra("orderid",orderid);
+                    context.startActivity(intent);
                 }
             }
         });

@@ -65,7 +65,7 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService
         {
             if(imageUri.isEmpty())
             {
-                imageUri="http://139.59.92.232:8000/media/SORPL.png";
+                imageUri="https://firebasestorage.googleapis.com/v0/b/sorpl-client.appspot.com/o/sorpl_not.png?alt=media&token=94e84267-25f1-4eff-ac42-1deee24d9199";
                 bitmap=getBitmapfromUrl(imageUri);
                 Log.i("image is:", "no image recieved");
                 sendSmallNotification(remoteMessage,bitmap);
@@ -169,7 +169,6 @@ public class MyFireBaseMessagingService extends FirebaseMessagingService
         notification.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap));
         notification.setSound(defaultSoundUri);
         notification.setSmallIcon(R.drawable.logo);
-        notification.setLargeIcon(bitmap);
         notification.setContentIntent(pendingIntent);
         notification.setChannelId(channelId);
 

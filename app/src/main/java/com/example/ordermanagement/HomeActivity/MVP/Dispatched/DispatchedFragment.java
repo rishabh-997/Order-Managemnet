@@ -20,6 +20,7 @@ import com.example.ordermanagement.HomeActivity.Model.OrderListResponse;
 import com.example.ordermanagement.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -96,10 +97,17 @@ public class DispatchedFragment extends Fragment implements DispatchedContract.v
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        refresh();
+    }
+
+    @Override
     public void showOrder(OrderListResponse body)
     {
         progressBar.setVisibility(View.GONE);
         lists=body.getClient_list();
+        Collections.reverse(lists);
         adapterForOrder=new AdapterForOrder(lists,getContext());
         adapterForOrder.setname("Dispatched");
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

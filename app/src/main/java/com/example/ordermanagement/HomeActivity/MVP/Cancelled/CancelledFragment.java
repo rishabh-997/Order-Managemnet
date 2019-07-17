@@ -20,6 +20,7 @@ import com.example.ordermanagement.HomeActivity.Model.OrderListResponse;
 import com.example.ordermanagement.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -102,6 +103,7 @@ public class CancelledFragment extends Fragment implements CancelledContract.vie
     {
         progressBar.setVisibility(View.GONE);
         lists=body.getClient_list();
+        Collections.reverse(lists);
         adapterForOrder=new AdapterForOrder(lists,getContext());
         adapterForOrder.setname("Cancelled");
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

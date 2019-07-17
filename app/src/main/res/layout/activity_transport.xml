@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/trans_bar"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/trans_spinner"
+        android:layout_height="36dp"
+        android:layout_margin="6dp"
+        android:background="@drawable/spinnerbg"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_margin="6dp"
+        android:text="Select"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:fontFamily="casual"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/trans_name"
+        android:layout_below="@id/trans_spinner" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_margin="6dp"
+        android:text="Order ID"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:fontFamily="casual"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/trans_order"
+        android:layout_below="@id/trans_name" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_margin="6dp"
+        android:text="Comment"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:fontFamily="casual"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/trans_comment"
+        android:layout_below="@id/trans_order" />
+
+    <Button
+        android:id="@+id/trans_submit"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Dispatch Order"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
