@@ -1,5 +1,7 @@
 package com.example.ordermanagement.Transporter.MVP;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,9 +10,12 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,9 +49,14 @@ public class TransportActivity extends AppCompatActivity implements TransportCon
     TextView trans_comment;
     @BindView(R.id.trans_submit)
     Button submit;
+    @BindView(R.id.trans_edit)
+    EditText search_text;
+    @BindView(R.id.trans_search)
+    ImageView search_button;
 
     String name="",mobile="",orderid="",comment="";
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +71,12 @@ public class TransportActivity extends AppCompatActivity implements TransportCon
         int height=dm.heightPixels;
         int width=dm.widthPixels;
 
-        getWindow().setLayout((int)(width*0.7),(int)(height*0.65));
+        getWindow().setLayout((int)(width*0.8),(int)(height*0.75));
 
         WindowManager.LayoutParams params=getWindow().getAttributes();
         params.gravity= Gravity.CENTER;
         params.x=0;
-        params.y=20;
+        params.y=10;
 
         getWindow().setAttributes(params);
 
@@ -86,6 +96,22 @@ public class TransportActivity extends AppCompatActivity implements TransportCon
             @Override
             public void onClick(View v) {
                 dispatch();
+            }
+        });
+
+        search_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(search_text.getText().toString().isEmpty())
+                {
+                    search_text.setError("Enter Query");
+                    search_text.requestFocus();
+                }
+                else {
+                    progressBar.setVisibility(View.VISIBLE);
+                    hideKeyboard();
+                    presenter.search(search_text.getText().toString(), "2");
+                }
             }
         });
     }
@@ -133,17 +159,17 @@ public class TransportActivity extends AppCompatActivity implements TransportCon
         final String[] contact = new String[list.size()];
         for(int i=0;i<list.size();i++)
         {
-            contact[i]=list.get(i).getMobile();
+            contact[i]=list.get(i).getName();
         }
 
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,contact);
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(this, R.layout.spinner_layout,contact);
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mobile=spinner.getSelectedItem().toString();
-                name=list.get(position).getName();
-                trans_name.setText(name);
+                name=spinner.getSelectedItem().toString();
+                mobile=list.get(position).getMobile();
+                trans_name.setText(mobile);
             }
 
             @Override
@@ -151,5 +177,13 @@ public class TransportActivity extends AppCompatActivity implements TransportCon
 
             }
         });
+    }
+
+    private void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

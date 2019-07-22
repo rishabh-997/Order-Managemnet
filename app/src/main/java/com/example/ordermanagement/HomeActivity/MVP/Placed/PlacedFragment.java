@@ -96,6 +96,11 @@ public class PlacedFragment extends Fragment implements PlacedContract.view
         progressBar.setVisibility(View.VISIBLE);
         presenter.getOrders(getContext());
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        refresh();
+    }
 
     @Override
     public void showOrder(OrderListResponse body)

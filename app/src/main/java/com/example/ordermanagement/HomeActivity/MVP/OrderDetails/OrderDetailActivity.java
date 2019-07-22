@@ -95,6 +95,6 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     @Override
     public void onBackPressed() {
         finish();
-        startActivity(new Intent(this, HomeActivity.class));
+        super.onBackPressed();
     }
 }

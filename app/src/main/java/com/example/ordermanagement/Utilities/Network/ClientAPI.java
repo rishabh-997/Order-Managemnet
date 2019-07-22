@@ -74,4 +74,11 @@ public interface ClientAPI {
             @Field("OrderID") String id,
             @Field("Mobile") String mobile
     );
+
+    @POST("Search/")
+    @FormUrlEncoded
+    Call<TransportResponse> search(
+            @Field("RegType") String regtype,
+            @Field("query") String query
+    );
 }

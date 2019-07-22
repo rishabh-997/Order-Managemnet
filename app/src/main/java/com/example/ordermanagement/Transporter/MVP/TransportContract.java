@@ -18,5 +18,7 @@ public class TransportContract {
         void dispatch(String orderid, String mobile);
 
         void escalate(String orderid, String client);
+
+        void search(String toString, String s);
     }
 }

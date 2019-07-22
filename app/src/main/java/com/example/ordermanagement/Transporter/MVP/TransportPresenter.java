@@ -96,4 +96,27 @@ public class TransportPresenter implements TransportContract.presenter
             }
         });
     }
+
+    @Override
+    public void search(String toString, String s) {
+        clientAPI.search(s,toString).enqueue(new Callback<TransportResponse>() {
+            @Override
+            public void onResponse(Call<TransportResponse> call, Response<TransportResponse> response) {
+                if(response.isSuccessful())
+                {
+                    if(response.body().getMessage().equals("successful"))
+                        mvpview.showTransporterData(response.body());
+                    else
+                        mvpview.showToast(response.body().getMessage());
+                }
+                else
+                    mvpview.showToast(response.message());
+            }
+
+            @Override
+            public void onFailure(Call<TransportResponse> call, Throwable t) {
+
+            }
+        });
+    }
 }

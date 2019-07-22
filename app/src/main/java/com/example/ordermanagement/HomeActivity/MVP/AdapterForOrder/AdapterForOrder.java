@@ -100,7 +100,6 @@ public class AdapterForOrder extends RecyclerView.Adapter<AdapterForOrder.ViewHo
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity)context).finish();
                 Intent intent=new Intent(context, OrderDetailActivity.class);
                 intent.putExtra("orderid",orderid);
                 intent.putExtra("comment",history.getComment());

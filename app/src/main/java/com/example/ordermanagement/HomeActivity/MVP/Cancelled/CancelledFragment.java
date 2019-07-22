@@ -99,6 +99,12 @@ public class CancelledFragment extends Fragment implements CancelledContract.vie
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        refresh();
+    }
+
+    @Override
     public void showOrder(OrderListResponse body)
     {
         progressBar.setVisibility(View.GONE);
