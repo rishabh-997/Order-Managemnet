@@ -55,7 +55,6 @@
         android:text="Select"
         android:gravity="center_vertical"
         android:textSize="14sp"
-        android:fontFamily="casual"
         android:textColor="@color/colorPrimary"
         android:id="@+id/trans_name"
         android:layout_below="@id/trans_spinner" />
@@ -67,7 +66,6 @@
         android:text="Order ID"
         android:gravity="center_vertical"
         android:textSize="14sp"
-        android:fontFamily="casual"
         android:textColor="@color/colorPrimary"
         android:id="@+id/trans_order"
         android:layout_below="@id/trans_name" />
@@ -76,9 +74,9 @@
         android:layout_height="36dp"
         android:layout_margin="6dp"
         android:text="Comment"
+        android:textStyle="italic"
         android:gravity="center_vertical"
         android:textSize="14sp"
-        android:fontFamily="casual"
         android:textColor="@color/colorPrimary"
         android:id="@+id/trans_comment"
         android:layout_below="@id/trans_order" />
